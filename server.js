@@ -19,13 +19,13 @@ io.on('connection', (socket) => {
 });
 
 io.on('switchOn', (socket) => {
-  console.log('Server : Switch On !!');
-   io.emit('lightsOn') 
+console.log('Server : Switch On !!');
+ io.emit('lightsOn', "App Turned the light on") 
 });
 
 io.on('switchOff', (socket) => {
   console.log('Server : Switch Off !!');
-   io.emit('lightsOff') 
+   io.emit('lightsOff', "App Turned the light off") 
 });
  
-//setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
+setInterval(() => io.emit('time', new Date().toTimeString()), 5000);
