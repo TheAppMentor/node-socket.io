@@ -28,5 +28,4 @@ io.on('switchOff', (socket) => {
    io.emit('lightsOff') 
 });
  
-
 //setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
