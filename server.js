@@ -15,18 +15,20 @@ const server = express()
 const io = socketIO(server);
 
 io.on('connection', (socket) => {
-  console.log('Client connected');
-  socket.on('disconnect', () => console.log('Client disconnected'));
+    console.log('Client connected');
+    socket.on('disconnect', () => console.log('Client disconnected'));
+
+
+    socket.on('switchOn', (socket) => {
+        console.log('Server : Switch On !!');
+        io.emit('lightsOn', "App Turned the light on") 
+    });
+
+    socket.on('switchOff', (socket) => {
+        console.log('Server : Switch Off !!');
+        io.emit('lightsOff', "App Turned the light off") 
+    });
+
 });
 
-io.on('switchOn', (socket) => {
- console.log('Server : Switch On !!');
- io.emit('lightsOn', "App Turned the light on") 
-});
-
-io.on('switchOff', (socket) => {
-  console.log('Server : Switch Off !!');
-   io.emit('lightsOff', "App Turned the light off") 
-});
- 
 setInterval(() => io.emit('time', new Date().toTimeString()), 5000);
