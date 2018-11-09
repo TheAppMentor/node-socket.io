@@ -21,12 +21,12 @@ io.on('connection', (socket) => {
 
     socket.on('switchOn', () => {
         console.log('Server : Switch On !!');
-        socket.emit('lightsOn', "App Turned the light on") 
+        io.emit('lightsOn', "App Turned the light on") 
     });
 
     socket.on('switchOff', () => {
         console.log('Server : Switch Off !!');
-        socket.emit('lightsOff', "App Turned the light off") 
+        io.emit('lightsOff', "App Turned the light off") 
     });
 
 });
