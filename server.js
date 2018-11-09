@@ -18,4 +18,15 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => console.log('Client disconnected'));
 });
 
-setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
+io.on('switchOn', (socket) => {
+  console.log('Server : Switch On !!');
+   io.emit('lightsON') 
+});
+
+io.on('switchOff', (socket) => {
+  console.log('Server : Switch Off !!');
+   io.emit('lightsOff') 
+});
+
+
+//setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
