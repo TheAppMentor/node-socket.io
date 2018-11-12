@@ -28,7 +28,11 @@ io.on('connection', (socket) => {
         console.log('Server : Switch Off !!');
         io.emit('lightsOff', "App Turned the light off") 
     });
-
+    
+    socket.on('takePic', () => {
+        console.log('Take Pic: Ask Iphone to take a pic...!!');
+        io.emit('takePic', "Ask iphone to take a pic") 
+    });
 });
 
-setInterval(() => io.emit('time', new Date().toTimeString()), 10000);
+setInterval(() => io.emit('time', new Date().toTimeString()), 5);
