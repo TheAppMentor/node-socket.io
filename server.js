@@ -35,4 +35,4 @@ io.on('connection', (socket) => {
     });
 });
 
-setInterval(() => io.emit('time', new Date().toTimeString()), 5);
+setInterval(() => io.emit('time', new Date().toTimeString()), 5000);
