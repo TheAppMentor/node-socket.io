@@ -38,6 +38,12 @@ io.on('connection', (socket) => {
         console.log('We Got back a COLOR : ITS RED !!');
         io.emit('COLORISRED', "Ask iphone to take a pic") 
     });
+
+    socket.on('YELLOW', () => {
+        console.log('We Got back a COLOR : ITS YELLOW!!');
+        io.emit('COLORISYELLOW', "YELLOW IS THE COLOR") 
+    });
+
 });
 
 setInterval(() => io.emit('time', new Date().toTimeString()), 5000);
