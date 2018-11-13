@@ -33,6 +33,11 @@ io.on('connection', (socket) => {
         console.log('Take Pic: Ask Iphone to take a pic...!!');
         io.emit('takePic', "Ask iphone to take a pic") 
     });
+    
+    socket.on('RED', () => {
+        console.log('We Got back a COLOR : ITS RED !!');
+        io.emit('COLORISRED', "Ask iphone to take a pic") 
+    });
 });
 
 setInterval(() => io.emit('time', new Date().toTimeString()), 5000);
